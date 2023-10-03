@@ -15,8 +15,13 @@ import { NextRequest, NextResponse } from "next/server";
 //     });
 // }
 
-export async function POST(request: NextRequest) {
-  const res = await request.json;
+export async function POST(request: Request) {
+  try {
+    const newVal = await request.json();
 
-  return NextResponse.json({ res });
+    return NextResponse.json({ ...newVal });
+  } catch (error) {
+    error;
+    return NextResponse.json({ error: "Error" }, { status: 400 });
+  }
 }
