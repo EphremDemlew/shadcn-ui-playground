@@ -16,9 +16,7 @@ import { NextRequest, NextResponse } from "next/server";
 // }
 
 export async function POST(request: NextRequest) {
-  // console.log("🚀 ~ file: route.ts:19 ~ POST ~ request:", request);
-  // const res = await request.json(); // res now contains body
-  console.log("Request Body:", await request.json);
+  const res = await request.json;
 
-  return NextResponse.json({ res: "Something" });
+  return NextResponse.json({ res });
 }
