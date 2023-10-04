@@ -18,8 +18,9 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     // console.log("The Data is ====> ", await request.json());
-    const newVal = await request.arrayBuffer();
-    return NextResponse.json(newVal);
+    const newVal = await request.formData();
+    console.log("🚀 ~ file: route.ts:22 ~ POST ~ newVal:", newVal);
+    return NextResponse.json({ ...newVal });
   } catch (error) {
     console.log("🚀 ~ file: route.ts:24 ~ POST ~ error:", error);
     return NextResponse.json(error, { status: 400 });
