@@ -17,6 +17,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
+    request.headers.set("Access-Control-Allow-Origin", "*");
+    request.headers.set("Access-Control-Allow-Methods", "POST");
+    request.headers.set("Access-Control-Allow-Headers", "Content-Type");
     // console.log("The Data is ====> ", await request.json());
     const newVal = await request.formData();
     console.log("🚀 ~ file: route.ts:22 ~ POST ~ newVal:", newVal);
