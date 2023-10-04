@@ -17,11 +17,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const newVal = await request.json();
-
-    return NextResponse.json({ ...newVal });
+    // console.log("The Data is ====> ", await request.json());
+    const newVal = await request.arrayBuffer();
+    return NextResponse.json(newVal);
   } catch (error) {
-    error;
-    return NextResponse.json({ error: "Error" }, { status: 400 });
+    console.log("🚀 ~ file: route.ts:24 ~ POST ~ error:", error);
+    return NextResponse.json(error, { status: 400 });
   }
 }
