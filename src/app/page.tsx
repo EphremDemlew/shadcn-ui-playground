@@ -34,7 +34,7 @@ export default function Home() {
         <p className="text-xl font-semibold">Shadcn button</p>
         <p>Some desc here</p>
       </div>
-      <Button variant={"default"} onClick={onButtonClick}>
+      <Button variant={"default"} onClick={(=>{console.log("Clicked!!!")})}>
         Click me
       </Button>
     </main>
